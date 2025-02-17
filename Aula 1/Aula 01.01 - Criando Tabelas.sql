@@ -1,4 +1,4 @@
--- Aula 1 - Atividade 05 - Criando tabelas
+-- Aula 1 - Criando tabelas
 
 CREATE TABLE produtos (
   id TEXT PRIMARY KEY,
