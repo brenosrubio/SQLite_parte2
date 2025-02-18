@@ -67,3 +67,19 @@ HAVING preco > (
         SELECT AVG(preco)
         FROM produtos
     )
+
+
+/*
+Agora vamos executar clicando em "Run". E agora sim, então temos todos os produtos onde o seu preço é maior do que a média de preço de todos os produtos. 
+Na parte inferior, temos uma tabela com os campos nome e preco.
+
+Então, temos que o menor valor é o 5.5, já que a média de preço, se verificarmos aqui, é 5.33. Vamos arredondar.
+
+Então, temos SELECT nome, preco FROM produtos, agrupando pelo nome e pelo preço. Estamos usando o HAVING ao invés do WHERE, já que estamos 
+trabalhando com valores agregados. Agora não estamos buscando, estamos usando um operador de "maior que", um operador de comparação e também conseguimos trabalhar. 
+E o melhor de tudo, estamos fazendo isso utilizando a mesma tabela na nossa consulta principal e também na nossa subconsulta.
+
+Conhecemos como podemos trabalhar tanto com UNION como UNION ALL para unir as nossas tabelas que possuem campos com a mesma descrição, 
+como também como podemos trabalhar com subconsultas para unir informações também de outras tabelas que necessariamente não precisam ter os campos iguais.
+*/
+
