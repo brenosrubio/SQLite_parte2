@@ -55,3 +55,8 @@ sabemos que o campo "nome" só existe na tabela de clientes, logo, podemos refer
 
 Também sabemos que "data" e "hora" só existem na tabela de pedidos, mas vamos referenciá-las como p.datahorapedido.
 */
+
+SELECT c.nome, p.id, p.datahorapedido 
+FROM clientes c 
+INNER JOIN pedidos p 
+ON c.id = p.idcliente;
