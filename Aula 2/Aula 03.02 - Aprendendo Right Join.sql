@@ -121,3 +121,22 @@ Executado o código, obteremos exatamente isso: idpedido e idproduto. Agora, vam
 Vamos dar o nome de x para a subconsulta. E onde antes referenciávamos a tabela de itenspedidos, 
 vamos referenciar com a nossa tabela montada através das subconsultas.
 */
+
+
+SELECT pr.nome,  x.idproduto,  x.idpedido 
+FROM(
+    SELECT ip.idpedido, ip.idproduto
+    FROM pedidos p
+    JOIN itenspedidos ip 
+    ON p.id = ip.idpedido
+    WHERE strftime('%m', p.DataHoraPedido) = '10' ) x
+RIGHT JOIN produtos pr
+ON pr.id =  x.idproduto;
+
+/*
+Agora, podemos executar toda a nossa consulta. Obtemos apenas os produtos do mês 10 (outubro). 
+Com a consulta, conseguimos saber que além da lasanha à bolonhesa, temos o omelete, o muffin e o croissant de amêndoa não foram pedidos no mês de outubro.
+
+Dessa forma, criamos uma consulta que facilita o trabalho da gestão, possibilitando, por exemplo, 
+que consigam identificar por que determinado produto não foi vendido em um determinado mês.
+*/
