@@ -18,3 +18,7 @@ DataPedido
 
 Seu desafio é criar uma consulta SQL que retorne o nome dos clientes que ainda não fizeram pedidos em sua loja.
 */
+
+SELECT Nome as 'Clientes sem pedidos na loja'
+FROM Clientes
+WHERE ID NOT IN (SELECT IDcliente FROM Pedidos);
