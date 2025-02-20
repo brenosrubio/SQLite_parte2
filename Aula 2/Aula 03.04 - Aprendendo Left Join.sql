@@ -45,3 +45,21 @@ SELECT c.nome, p.id
 FROM clientes c 
 LEFT JOIN Pedidos p 
 ON c.id = p.idcliente;
+
+
+/*
+Vamos executar e analisar o que recebemos como retorno. Visualizando o retorno, ao fim da tabela, na última linha, 
+verificamos que "Paulo Souza", "João Santo"s e "Carla Ferreira" não têm nenhum pedido associado a eles. Temos os dois clientes que acabamos de inserir e 
+outro cliente que também não possuía nenhuma venda e constam como "NULL". Informação bem interessante!
+
+Mas, como já buscamos na nossa tabela de produtos, queremos apenas identificar quais clientes não realizaram o pedido em um determinado mês. 
+Então, voltaremos à nossa consulta anterior e selecionaremos o WHERE strftime com datahorapedido e executar.
+*/
+
+SELECT c.nome, p.id
+FROM clientes c 
+LEFT JOIN Pedidos p 
+ON c.id = p.idcliente
+WHERE strftime('%m', p.datahorapedido) = '10' ;
+
+
