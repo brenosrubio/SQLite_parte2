@@ -10,3 +10,14 @@
 INSERT INTO Clientes (id, Nome, Telefone, Email, Endereco)
 VALUES (28, 'João Santos', '215555678', 'joao.santos@email.com', 'Avenida Principal, 456, Cidade B'),
        (29, 'Carla Ferreira', '315557890', 'carla.ferreira@email.com', 'Travessa das Ruas, 789, Cidade C');
+
+/*
+Já sabemos aqui que vamos buscar informações da tabela de clientes, e também da nossa tabela de pedidos. Para essa consulta, usaremos o SELECT * FROM clientes, 
+a cláusula JOIN e o alias, tanto em pedidos como em clientes.
+*/
+
+
+SELECT * 
+FROM clientes c
+JOIN 
+pedidos p;
