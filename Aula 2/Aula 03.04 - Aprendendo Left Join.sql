@@ -62,4 +62,27 @@ LEFT JOIN Pedidos p
 ON c.id = p.idcliente
 WHERE strftime('%m', p.datahorapedido) = '10' ;
 
+/*
+O retorno é uma tabela com uma série de cliente. É curioso, porque ele deveria ter retornado os dados dos nossos clientes e, em pedidos, 
+ele deveria ter retornado também aqueles clientes que não possuem venda. Mas ele não retornou, ele retornou apenas os clientes que possuem venda. 
+Dessa forma, temos todos os nomes dos clientes e apenas os que realizaram pedidos.
 
+Mas, e se quisermos o inverso? Se quisermos identificar os clientes que não possuem pedidos nesse determinado mês? Já que quando fazemos essa consulta sem o WHERE,
+ retornamos todos os nossos pedidos existentes na tabela. Então, precisamos aplicar um outro filtro.
+
+Como estamos utilizando o WHERE para aplicar o filtro de data, como podemos trabalhar com outro filtro? Vamos utilizar, mais uma vez, a subconsulta. 
+Podemos estruturá-la abaixo do código que já construímos.
+
+Passaremos SELECT * FROM e informaremos a nossa tabela, que é a tabela de pedidos. Em seguida, passaremos o WHERE. E na tabela de pedidos, 
+vamos querer p.id e p.idcliente. Também vamos adicionar o alias.
+*/
+
+SELECT c.nome, p.id
+FROM clientes c 
+LEFT JOIN Pedidos p 
+ON c.id = p.idcliente
+WHERE strftime('%m', p.datahorapedido) = '10';
+
+SELECT p.id, p.idcliente
+FROM pedidos p
+WHERE strftime('%m', p.datahorapedido) = '10';
