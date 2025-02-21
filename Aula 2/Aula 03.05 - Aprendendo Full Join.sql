@@ -38,3 +38,26 @@ FULL JOIN pedidos p
 ON c.id = p.idcliente
 WHERE strftime('%m', p.datahorapedido) = '10';
 
+
+/*
+Ele continuará retornando o mesmo, mas para um determinado mês. Mas o que queremos saber é se existem clientes que não realizaram 
+pedidos e se existem pedidos que não têm clientes associadas a eles. Podemos usar o nosso FULL JOIN para isso e retirar o filtro momentaneamente.
+
+Ao final dos retornos, encontraremos os clientes "Paula Souza", "João Santos" e "Carla Ferreira", que não possuem pedidos. 
+E temos alguns pedidos que não possuem clientes. Interessante, não é?
+
+Os pedidos 17, 40, 74, 100, e assim por diante, não possuem pessoas clientes associadas a eles. É dessa forma que conseguimos 
+trabalhar com o FULL JOIN. Ele retornará as informações das duas tabelas desde que haja essa correspondência.
+
+E o que seria essa correspondência? Na nossa tabela de pessoas clientes nós temos o ID, na nossa tabela de pedidos nós temos o ID. 
+Podemos até utilizar o IS NULL, como fizemos na nossa consulta anterior.
+
+Podemos colocar, por exemplo, c.id e buscar apenas os pedidos que não possuem pessoas clientes.
+*/
+
+SELECT c.nome, p.id 
+FROM clientes c
+FULL JOIN pedidos p
+ON c.id = p.idcliente
+WHERE c.id IS NULL;
+
