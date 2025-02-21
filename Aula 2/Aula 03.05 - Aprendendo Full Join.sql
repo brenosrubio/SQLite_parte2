@@ -26,3 +26,15 @@ FROM clientes c
 FULL JOIN pedidos p
 ON c.id = p.idcliente;
 
+/*
+Aqui, nós estamos trazendo o nome e o ID de nossas pessoas clientes. Ele retornará todas as pessoas clientes que possuem pedido.
+
+Podemos até aplicar um filtro de data.
+*/
+
+SELECT c.nome, p.id 
+FROM clientes c
+FULL JOIN pedidos p
+ON c.id = p.idcliente
+WHERE strftime('%m', p.datahorapedido) = '10';
+
