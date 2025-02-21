@@ -61,3 +61,13 @@ FULL JOIN pedidos p
 ON c.id = p.idcliente
 WHERE c.id IS NULL;
 
+
+/*
+Assim, teremos apenas os pedidos que não possuem pessoas clientes e podemos fazer o inverso, trazendo apenas as pessoas clientes que não possuem pedido.
+
+Temos esses quatro JOINS que podemos utilizar para executar consultas e unir informações de tabelas distintas, isto é, de duas ou mais tabelas 
+que existem na nossa base de dados que possuem relação entre si.
+
+Outra possibilidade é aproveitar todas essas informações que reunimos e gerar diversos relatórios para trazer mais informações para a gestão do 
+Serenatto Café Bistrô, de maneira que ela consiga tomar decisões baseadas nos dados.
+*/
